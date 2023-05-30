@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <span class="alert"></span>
+
+    <div class="container">
+
+        <div class="details">
+            <span>Wellcome !!</span>
+            <div class="playerName">
+                <span>Player One</span>
+                <input type="text" class="one" placeholder="Enter Name Here " required>
+            </div>
+            <div class="playerName">
+                <span>Player Two</span>
+                <input type="text" class="two" placeholder="Enter Name Here " required>
+            </div>
+            <button class="buttonGo">Go</button>
+
+        </div>
+
+
+
+        <div class="gameBoard">
+            <div class="playerNames">
+                <span class="oneName"></span>
+                <span class="twoName"></span>
+            </div>
+            <div class="turnText"></div>
+            <button class="restBtn">Restart</button>
+            <div class="board">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+
+        <div class="result">
+            <span class="winTitle">Congratulations 🎉🎊</span>
+            <p class="winTxt"></p>
+            <button class="restBtn">Restart</button>
+        </div>
+    </div>
+</body>
+</html>
