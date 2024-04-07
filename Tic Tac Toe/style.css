@@ -133,51 +133,9 @@ body .alert {
   z-index: 0;
 }
 
-.container .gameBoard .playerNames {
-  position: relative;
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: space-around;
-  border-radius: 5px;
-  padding: 5px 10px;
-  width: 100%;
-  gap: 15px;
-}
-
-.container .gameBoard .playerNames::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 100%;
-  width: 1px;
-  background: #000;
-}
-
-.container .gameBoard .playerNames .twoName {
-  text-align: left;
-  width: 50%;
-}
-
-.container .gameBoard .playerNames .oneName {
-  text-align: right;
-  width: 50%;
-}
-
-.container .gameBoard .playerNames span {
-  border-radius: 5px;
-  color: #333;
-  font-weight: 600;
-}
-
 .container .gameBoard .turnText {
+  font-size: 1.5rem;
   margin-top: 10px;
-  font-weight: 500;
-}
-
-.container .gameBoard .time {
   font-weight: 500;
 }
 
@@ -201,7 +159,10 @@ body .alert {
 
 .container .gameBoard .board .box {
   border-radius: 10px;
-  background: #e0eeee;
+  /* background: #ffcaff; */
+  background-color: #74ebd5;
+  background-image: radial-gradient(45deg, #74ebd5 20%, #9face6 100%);
+
   color: #333;
   height: 100%;
   width: 100%;
