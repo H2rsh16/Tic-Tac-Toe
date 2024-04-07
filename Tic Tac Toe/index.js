@@ -2,14 +2,9 @@ const Container = document.querySelector(".container");
 const ContainerDetails = document.querySelector(".container .details");
 const ContainerBoard = document.querySelector(".container .gameBoard");
 const ContainerResult = document.querySelector(".container .result");
-var PlayerOne = document.querySelector(".one");
-var PlayerTwo = document.querySelector(".two");
 var startGameBtn = document.querySelector(".container .details .buttonGo");
 var AlertText = document.querySelector(".alert");
-var statsOnename = document.querySelector(".gameBoard .playerNames .oneName");
-var statsTwoname = document.querySelector(".gameBoard .playerNames .twoName");
 var Box = document.querySelectorAll(".gameBoard .board .box");
-var time = document.querySelector(".time");
 var turnText = document.querySelector(".turnText");
 var WinText = document.querySelector(".winTxt");
 var Restart = document.querySelectorAll(".restBtn");
@@ -20,9 +15,6 @@ let randomeindex = Math.floor(Math.random() * turns.length);
 let currentTurn = turns[randomeindex];
 let allBoxes = [];
 let condition, winner;
-let PlayerOneTurn = currentTurn,
-  PlayerTwoTurn = currentTurn == "X" ? "O" : "X";
-let PlayerOneName, PlayerTwoName;
 
 const winningCombos = [
   [0, 1, 2],
@@ -34,38 +26,6 @@ const winningCombos = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-
-const CheckNames = () => {
-  if ((PlayerOne.value == "") & (PlayerTwo.value == "")) {
-    AlertText.style.opacity = "1";
-    AlertText.style.visibility = "visible";
-    AlertText.innerText = "Please enter player names First ??";
-  } else if (PlayerOne.value == "") {
-    AlertText.style.opacity = "1";
-    AlertText.style.visibility = "visible";
-    AlertText.innerText = "Please enter Player One First ??";
-  } else if (PlayerTwo.value == "") {
-    AlertText.style.opacity = "1";
-    AlertText.style.visibility = "visible";
-    AlertText.innerText = "Please enter Player Two First ??";
-  } else {
-    AlertText.style.opacity = "0";
-    AlertText.style.visibility = "hidden";
-    AlertText.innerText = "";
-  }
-
-  PlayerOne.addEventListener("focus", () => {
-    AlertText.style.opacity = "0";
-    AlertText.style.visibility = "hidden";
-    AlertText.innerText = "";
-  });
-
-  PlayerTwo.addEventListener("focus", () => {
-    AlertText.style.opacity = "0";
-    AlertText.style.visibility = "hidden";
-    AlertText.innerText = "";
-  });
-};
 
 const checkTie = () => {
   for (let i = 0; i < 9; i++) {
@@ -112,7 +72,7 @@ const checkWin = () => {
   }
 
   if (winner) {
-    ContainerDetails.style.transform = "translate(-350%, -50%)";
+    ContainerDetails.style.transform = "translate(-400%, -50%)";
     ContainerBoard.style.transform = "translate(-50%, -300%)";
     ContainerResult.style.transform = "translate(-50%, -50%)";
 
@@ -120,27 +80,18 @@ const checkWin = () => {
     ContainerBoard.style.transition = ".3s ease-in-out";
     ContainerResult.style.transition = ".3s ease-in-out";
 
-    if (currentTurn) {
-      WinText.textContent = `The Player ${PlayerOneName} (${PlayerOneTurn}) Wins !!`;
-    } else {
-      WinText.textContent = `The Player ${PlayerTwoName} (${PlayerTwoTurn}) Wins !!`;
-    }
+    WinText.textContent = `The Player (${currentTurn}) Wins !!`;
   } else {
     return;
   }
 };
 
 const changeTurn = () => {
-  turnText.innerText =
-    "Turn for " + statsOnename.innerText + " (" + currentTurn + ") !";
-
   if (currentTurn == "X") {
-    turnText.innerText =
-      "Turn for " + statsOnename.innerText + " (" + currentTurn + ") !";
+    turnText.innerText = `Turn for (${currentTurn}) !`;
     currentTurn = "O";
   } else {
-    turnText.innerText =
-      "Turn for " + statsTwoname.innerText + " (" + currentTurn + ") !";
+    turnText.innerText = `Turn for (${currentTurn}) !`;
     currentTurn = "X";
   }
 
@@ -148,24 +99,14 @@ const changeTurn = () => {
 };
 
 const StartGame = () => {
-  statsOnename.innerText = PlayerOne.value;
-  statsTwoname.innerText = PlayerTwo.value;
+  ContainerDetails.style.transform = "translate(-400%, -50%)";
+  ContainerBoard.style.transform = "translate(-50%, -50%)";
 
-  PlayerOneName = statsOnename.innerText;
-  PlayerTwoName = statsTwoname.innerText;
-
-  if ((PlayerOne.value != "") & (PlayerTwo.value != "")) {
-    ContainerDetails.style.transform = "translate(-350%, -50%)";
-    ContainerBoard.style.transform = "translate(-50%, -50%)";
-
-    ContainerDetails.style.transition = ".3s ease-in-out";
-    ContainerBoard.style.transition = ".3s ease-in-out";
-  }
+  ContainerDetails.style.transition = ".3s ease-in-out";
+  ContainerBoard.style.transition = ".3s ease-in-out";
 };
 
 startGameBtn.addEventListener("click", () => {
-  CheckNames();
-
   StartGame();
 
   changeTurn();
@@ -191,9 +132,6 @@ const restartGame = () => {
     e.innerText = "";
     e.style.pointerEvents = "all";
   });
-
-  PlayerOne.value = "";
-  PlayerTwo.value = "";
 
   ContainerDetails.style.transform = "translate(-50%, -50%)";
   ContainerBoard.style.transform = "translate(-50%, -300%)";
