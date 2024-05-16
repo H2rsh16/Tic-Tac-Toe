@@ -35,19 +35,23 @@ const checkTie = () => {
   condition = allBoxes.every((e) => e.innerText != "");
 
   if (condition) {
-    winner = false;
-    ContainerDetails.style.transform = "translate(-400%, -50%)";
-    ContainerBoard.style.transform = "translate(-50%, -300%)";
-    ContainerResult.style.transform = "translate(-50%, -50%)";
+    if(!winner){
+      ContainerDetails.style.transform = "translate(-400%, -50%)";
+      ContainerBoard.style.transform = "translate(-50%, -300%)";
+      ContainerResult.style.transform = "translate(-50%, -50%)";
+      
+      ContainerDetails.style.transition = ".3s ease-in-out";
+      ContainerBoard.style.transition = ".3s ease-in-out";
+      ContainerResult.style.transition = ".3s ease-in-out";
+  
+      WinTitle.textContent = "Better Luck Next Time :(";
+      
+      WinText.textContent = "Its A Draw 50/50 !";
 
-    ContainerDetails.style.transition = ".3s ease-in-out";
-    ContainerBoard.style.transition = ".3s ease-in-out";
-    ContainerResult.style.transition = ".3s ease-in-out";
-
-    WinTitle.textContent = "Better Luck Next Time :(";
-
-    WinText.textContent = "Its A Draw 50/50 !";
+      winner = false;
+    }
   }
+  
 };
 
 const checkWin = () => {
@@ -84,7 +88,7 @@ const checkWin = () => {
 
     WinText.textContent = `The Player (${currentTurn}) Wins !!`;
   } else {
-    return;
+    winner = false
   }
 };
 
