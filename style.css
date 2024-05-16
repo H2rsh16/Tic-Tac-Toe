@@ -1,0 +1,318 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+body .alert {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #333;
+  font-weight: 500;
+  background: #fff;
+  transition: 0.4s ease-in;
+  opacity: 0;
+  visibility: hidden;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+  height: 500px;
+  padding: 30px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.3 ease;
+  z-index: 0;
+}
+
+.container .details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  /* width: 300px; */
+  padding: 20px 40px;
+  background: #fff;
+  border-radius: 5px;
+  transition: 0.3 ease;
+  z-index: 10;
+}
+
+.container .details > span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+
+.container .details .buttonGo {
+  margin-top: 25px;
+  padding: 5px 20px;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+
+.container .gameBoard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 5px;
+  padding: 30px 50px;
+  background: #fff;
+  transition: 0.3 ease;
+  z-index: 0;
+}
+
+.container .gameBoard .turnText {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.container .gameBoard .restBtn {
+  margin-top: 10px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.container .gameBoard .board {
+  margin-top: 20px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 100px);
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.container .gameBoard .board .box {
+  border-radius: 10px;
+  /* background: #ffcaff; */
+  background-color: #74ebd5;
+  background-image: radial-gradient(45deg, #74ebd5 20%, #9face6 100%);
+
+  color: #333;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 3rem;
+  /* pointer-events: none; */
+  cursor: pointer;
+}
+
+.container .result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-300%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(auto + 20px);
+  height: calc(auto + 50px);
+  padding: 30px;
+  background: #fff;
+  border-radius: 5px;
+  z-index: 0;
+}
+
+.container .result .winTxt .name {
+  font-weight: 600;
+}
+
+.container .result span {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.container .result .restBtn {
+  margin-top: 10px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+/* Tablet */
+@media (min-width: 521px) and (max-width: 786px) {
+  body{
+    background-repeat: no-repeat;
+  }
+  
+  .container{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .container .details span{
+    font-size: .9rem;
+  }
+  .container .details .buttonGo{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+    font-size: .8rem; 
+  }
+  
+  .container .gameBoard{
+    height: 450px;
+    width: 350px;
+    transition: .2s ease-in-out;
+  }
+  .container .gameBoard .board{
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+
+  .container .gameBoard .turnText{
+    font-size: 1.1rem;
+  }
+
+  .container .gameBoard .restBtn{
+    font-size: .7rem;
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+  }
+  .container .gameBoard .board .box{
+    font-size: 2.5rem;
+  }
+
+  .container .result{
+    width: calc(auto + 20px);
+    height: calc(auto + 50px);
+  }
+
+  .container .result .winTitle{
+    font-size: 1.3rem;
+  }
+
+  .container .result .winTxt{
+    font-size: 1rem;
+  }
+
+  .container .result .restBtn{
+    font-size: .8rem;
+    width: 70px;
+    height: 30px;
+    font-weight: bold;
+  }
+}
+
+/* Phone */
+@media(max-width: 520px) {
+  body{
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+  }
+  
+  .container{
+    height: 400px;
+    width: 300px;
+    overflow: hidden;
+  }
+
+  .container .details span{
+    font-size: 1rem;
+  }
+  .container .details .buttonGo{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+    font-size: .9rem; 
+  }
+
+  .container .gameBoard{
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 270px;
+    overflow: hidden;
+  }
+  .container .gameBoard .board{
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+  }
+
+  .container .gameBoard .turnText{
+    font-size: 1.1rem;
+  }
+
+  .container .gameBoard .restBtn{
+    font-size: .7rem;
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+  }
+  .container .gameBoard .board .box{
+    font-size: 2rem;
+  }
+
+  .container .result{
+    overflow: hidden;
+    width: 300px;
+    height: calc(auto + 50px);
+  }
+
+  .container .result .winTitle{
+    font-size: 1.2rem;
+  }
+
+  .container .result .winTxt{
+    font-size: .9rem;
+  }
+
+  .container .result .restBtn{
+    font-size: .7rem;
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+  }
+}
+
