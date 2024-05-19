@@ -127,20 +127,18 @@ body .alert {
 
 .container .gameBoard .board .box {
   border-radius: 10px;
-  /* background: #ffcaff; */
   background-color: #74ebd5;
-  background-image: radial-gradient(45deg, #74ebd5 20%, #9face6 100%);
 
-  color: #333;
+  color: #fff;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 3rem;
-  /* pointer-events: none; */
+  font-size: 4.5rem;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .container .result {
@@ -184,25 +182,25 @@ body .alert {
   }
   
   .container{
-    height: 100vh;
-    width: 100vw;
     overflow: hidden;
   }
 
   .container .details span{
-    font-size: .9rem;
+    font-size: 1rem;
   }
   .container .details .buttonGo{
-    width: 40px;
-    height: 30px;
+    width: 50px;
+    height: 40px;
     padding: 5px;
-    font-size: .8rem; 
+    font-size: 1rem; 
   }
   
   .container .gameBoard{
-    height: 450px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
     width: 350px;
-    transition: .2s ease-in-out;
+    overflow: hidden;
   }
   .container .gameBoard .board{
     grid-template-columns: repeat(3, 80px);
@@ -217,7 +215,6 @@ body .alert {
     font-size: .7rem;
     width: 60px;
     height: 30px;
-    font-weight: bold;
   }
   .container .gameBoard .board .box{
     font-size: 2.5rem;
@@ -251,8 +248,6 @@ body .alert {
   }
   
   .container{
-    height: 100vh;
-    width: 100vw;
     overflow: hidden;
   }
   .container.details{
@@ -264,22 +259,23 @@ body .alert {
     font-size: 1rem;
   }
   .container .details .buttonGo{
-    width: 40px;
-    height: 30px;
+    width: 50px;
+    height: 40px;
     padding: 5px;
-    font-size: .9rem; 
+    font-size: 1rem; 
   }
 
   .container .gameBoard{
     display: flex;
     flex-direction: column;
-    height: 350px;
-    width: 270px;
+    height: 520px;
+    width: 400px;
     overflow: hidden;
   }
   .container .gameBoard .board{
-    grid-template-columns: repeat(3, 60px);
-    grid-template-rows: repeat(3, 60px);
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    overflow: hidden;
   }
 
   .container .gameBoard .turnText{
@@ -287,13 +283,12 @@ body .alert {
   }
 
   .container .gameBoard .restBtn{
-    font-size: .7rem;
-    width: 60px;
-    height: 30px;
-    font-weight: bold;
+    font-size: .9rem;
+    width: 70px;
+    height: 40px;
   }
   .container .gameBoard .board .box{
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .container .result{
@@ -314,7 +309,6 @@ body .alert {
     font-size: .7rem;
     width: 60px;
     height: 30px;
-    font-weight: bold;
   }
 }
 
