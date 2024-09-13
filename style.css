@@ -147,7 +147,7 @@ body .alert {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-300%, -50%);
+  transform: translate(-500%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
