@@ -144,7 +144,7 @@ const restartGame = () => {
 
   ContainerDetails.style.transform = "translate(-50%, -50%)";
   ContainerBoard.style.transform = "translate(-50%, -300%)";
-  ContainerResult.style.transform = "translate(300%, -50%)";
+  ContainerResult.style.transform = "translate(400%, -50%)";
 
   ContainerResult.transition = ".3s ease-in-out";
   ContainerDetails.style.transition = ".3s ease-in-out";
